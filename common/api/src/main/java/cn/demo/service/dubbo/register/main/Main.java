@@ -9,22 +9,33 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with demo.com .
  */
-package cn.demo.service.dubbo.register.service.impl;
+package cn.demo.service.dubbo.register.main;
 
-import cn.demo.service.dubbo.register.service.RegisterService;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
 
 /**
  * Created by TianMing <tianming@demo.com> on 16/4/5.
  *
- * @Type RegisterServiceImpl
+ * @Type Main
  * @Desc 普通类型转换
  * @Author TianMing <tianming@demo.com>
  * @Date 2016-04-05
  * @Version V1.0
  */
-public class RegisterServiceImpl implements RegisterService {
+public class Main {
 
-    public String hello(String name) {
-        return "hello" + name;
+    /**
+     * @param args
+     * @return void
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "spring/dubbo.xml" });
+        context.start();
+        System.out.println("按任意键退出");
+        System.in.read();
     }
+
 }
